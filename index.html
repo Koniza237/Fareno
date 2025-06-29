@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FARENO-TECH : Automatisation WhatsApp avec Anti Vue Unique, AntiDelete, et gestion intelligente des groupes.">
+    <meta name="keywords" content="FARENO-TECH, WhatsApp bot, automatisation, Anti Vue Unique, AntiDelete, group management">
+    <link rel="shortcut icon" href="logo1.jpg">
+    <title>FARENO-TECH - Automatisation WhatsApp Avancée</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #a855ff;
+            --accent-color: #10b981;
+            --bg-dark: #1e1e2e;
+            --bg-gradient: linear-gradient(135deg, #1e3a8a, #a855f7);
+            --text-light: #f3f4f6;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: var(--bg-gradient);
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15), transparent);
+            animation: rotateGlow 15s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .navbar {
+            background: rgba(30, 30, 46, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar a {
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: var(--accent-color);
+        }
+
+        .logo-img {
+            height: 40px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .cta-button {
+            background: var(--secondary-color);
+            color: var(--text-light);
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            background: var(--accent-color);
+        }
+
+        .demo-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .demo-video {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .mute-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent-color);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .mute-button:hover {
+            background: var(--secondary-color);
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .faq-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-light);
+            border-radius: 8px;
+            padding: 1rem;
+            width: 100%;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .contact-info a {
+            color: var(--accent-color);
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar fixed top-0 left-0 w-full z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="logo1.jpg" alt="FARENO-TECH Logo" class="logo-img mr-4">
+                <h1 class="text-3xl font-bold">FARENO-TECH</h1>
+            </div>
+            <ul class="flex space-x-8">
+                <li><a href="#home" class="text-lg">Accueil</a></li>
+                <li><a href="#features" class="text-lg">Fonctionnalités</a></li>
+                <li><a href="#demo" class="text-lg">Démo</a></li>
+                <li><a href="#pricing" class="text-lg">Tarification</a></li>
+                <li><a href="#testimonials" class="text-lg">Témoignages</a></li>
+                <li><a href="#faq" class="text-lg">FAQ</a></li>
+                <li><a href="#contact" class="text-lg">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content container mx-auto px-6">
+            <h2 class="text-6xl font-bold mb-6 animate-hero-title">FARENO-TECH : Votre Bot WhatsApp Ultime</h2>
+            <p class="text-2xl mb-8 animate-hero-text">Anti Vue Unique, AntiDelete, et automatisation des groupes pour une gestion intelligente.</p>
+            <a href="#demo" class="cta-button inline-block text-lg">Voir la démo</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16">Fonctionnalités du Bot</h2>
+            <p class="text-center text-xl mb-12">Découvrez les capacités puissantes de notre bot, inspirées du menu LEVANTER, pour une automatisation WhatsApp optimale.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card">
+                    <h3 class="text-2xl font-semibold mb-4">Anti Vue Unique (.vv)</h3>
+                    <p>Lisez les messages sans déclencher les coches bleues avec <code>.vv</code>. Parfait pour une confidentialité accrue.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-2xl font-semibold mb-4">AntiDelete (.dlt)</h3>
+                    <p>Récupérez les messages supprimés avec <code>.dlt</code>. Ne manquez plus aucune information cruciale.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-2xl font-semibold mb-4">Automatisation des Groupes</h3>
+                    <p>Gérez vos groupes avec des commandes comme <code>.add</code>, <code>.kick</code>, <code>.promote</code>, <code>.mute</code>, et <code>.tag</code>.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-2xl font-semibold mb-4">Réponses Automatiques (.filter)</h3>
+                    <p>Configurez des réponses automatiques avec <code>.filter</code> pour une communication instantanée 24/7.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-2xl font-semibold mb-4">Planification de Messages (.setschedule)</h3>
+                    <p>Programmez des messages avec <code>.setschedule</code> pour envoyer des annonces à des moments précis.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-2xl font-semibold mb-4">Analyse des Conversations (.msgstats)</h3>
+                    <p>Obtenez des rapports détaillés sur l’engagement avec <code>.msgstats</code> pour optimiser vos interactions.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-2xl font-semibold mb-4">Gestion de Statuts (.setstatus)</h3>
+                    <p>Personnalisez vos statuts WhatsApp avec <code>.setstatus</code> et consultez ceux des autres avec <code>.status</code>.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-2xl font-semibold mb-4">Téléchargements Médias</h3>
+                    <p>Téléchargez vidéos, images, et stories avec <code>.story</code>, <code>.video</code>, <code>.insta</code>, et plus.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-2xl font-semibold mb-4">Filtres Anti-Spam (.antispam)</h3>
+                    <p>Protégez vos groupes avec <code>.antispam</code>, <code>.antilink</code>, et <code>.antiword</code> pour une modération sécurisée.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-2xl font-semibold mb-4">Création de Stickers (.sticker)</h3>
+                    <p>Transformez images et vidéos en stickers avec <code>.sticker</code>, <code>.circle</code>, et <code>.mp4</code>.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-2xl font-semibold mb-4">Textes Personnalisés (.textmaker)</h3>
+                    <p>Créez des textes stylisés avec des effets comme <code>.neon</code>, <code>.glitch</code>, et <code>.marvel</code>.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-2xl font-semibold mb-4">Jeux et Interactions (.tictactoe)</h3>
+                    <p>Engagez vos groupes avec des jeux comme <code>.tictactoe</code> ou des votes avec <code>.vote</code>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-24 bg-white/10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16">Démo du Bot</h2>
+            <div class="demo-container">
+                <video class="demo-video" controls>
+                    <source src="demo.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la vidéo.
+                </video>
+                <button class="mute-button">Couper le son</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16">Nos Tarifs</h2>
+            <p class="text-center text-xl mb-12">Choisissez le plan qui vous convient. Migration possible entre les plans à tout moment !</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="pricing-card" onclick="confirmPurchase('Démarreur')">
+                    <h3 class="text-2xl font-semibold mb-4">Démarreur</h3>
+                    <p class="text-3xl mb-4">Installation : 7000F</p>
+                    <p class="text-xl mb-4">Mensuel : 3000F/mois</p>
+                    <ul class="text-left mb-6">
+                        <li class="mb-2">CPU : 20%</li>
+                        <li class="mb-2">Accès aux fonctionnalités de base (.vv, .filter)</li>
+                        <li class="mb-2">Support par email</li>
+                    </ul>
+                    <button class="cta-button">Choisir</button>
+                </div>
+                <div class="pricing-card" onclick="confirmPurchase('Medium')">
+                    <h3 class="text-2xl font-semibold mb-4">Medium</h3>
+                    <p class="text-3xl mb-4">Installation : 10000F</p>
+                    <p class="text-xl mb-4">Mensuel : 5000F/mois</p>
+                    <ul class="text-left mb-6">
+                        <li class="mb-2">CPU : 25%</li>
+                        <li class="mb-2">Anti Vue Unique + AntiDelete (.vv, .dlt)</li>
+                        <li class="mb-2">Automatisation des groupes (.add, .kick)</li>
+                        <li class="mb-2">Support 24/24</li>
+                    </ul>
+                    <button class="cta-button">Choisir</button>
+                </div>
+                <div class="pricing-card" onclick="confirmPurchase('Avancé')">
+                    <h3 class="text-2xl font-semibold mb-4">Avancé</h3>
+                    <p class="text-3xl mb-4">Installation : 15000F</p>
+                    <p class="text-xl mb-4">Mensuel : 5000F/mois</p>
+                    <ul class="text-left mb-6">
+                        <li class="mb-2">CPU : 50%</li>
+                        <li class="mb-2">Accès à toutes les fonctionnalités</li>
+                        <li class="mb-2">Support 24/24</li>
+                        <li class="mb-2">Intégrations personnalisées</li>
+                    </ul>
+                    <button class="cta-button">Choisir</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 bg-white/10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16">Ce que disent nos clients</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card">
+                    <p class="mb-4">"La commande .vv change tout pour ma gestion des messages. FARENO-TECH est un must !"</p>
+                    <p class="font-semibold">Sophie L., Community Manager</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="mb-4">"Grâce à .dlt, je récupère tous les messages supprimés. Un outil indispensable."</p>
+                    <p class="font-semibold">Ahmed M., Entrepreneur</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="mb-4">"L’automatisation des groupes avec .add et .kick est tellement pratique. Bravo FARENO-TECH !"</p>
+                    <p class="font-semibold">Clara T., Gestionnaire de communauté</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16">Foire Aux Questions</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="faq-item">
+                    <h3 class="text-xl font-semibold mb-2">Comment fonctionne l’Anti Vue Unique (.vv) ?</h3>
+                    <div class="faq-answer">
+                        <p>La commande <code>.vv</code> permet de lire les messages sans déclencher les coches bleues, garantissant une confidentialité totale.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="text-xl font-semibold mb-2">L’AntiDelete (.dlt) est-il sécurisé ?</h3>
+                    <div class="faq-answer">
+                        <p>Oui, les messages récupérés via <code>.dlt</code> sont stockés de manière sécurisée et accessibles uniquement par vous.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="text-xl font-semibold mb-2">Puis-je automatiser plusieurs groupes ?</h3>
+                    <div class="faq-answer">
+                        <p>Absolument ! Utilisez des commandes comme <code>.add</code>, <code>.kick</code>, ou <code>.promote</code> pour gérer plusieurs groupes simultanément.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="text-xl font-semibold mb-2">Quelles analyses sont disponibles avec .msgstats ?</h3>
+                    <div class="faq-answer">
+                        <p>La commande <code>.msgstats</code> fournit des rapports sur l’engagement, les réponses automatiques, et les tendances des conversations.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="text-xl font-semibold mb-2">Comment migrer vers un autre plan ?</h3>
+                    <div class="faq-answer">
+                        <p>Contactez-nous via WhatsApp (+237650564445) ou email (giffareno05@gmail.com) pour discuter des options de migration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-white/10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16">Contactez-nous</h2>
+            <div class="max-w-lg mx-auto text-center">
+                <div class="contact-info mb-8">
+                    <p class="mb-4">WhatsApp : <a href="https://wa.me/237650564445">+237650564445</a></p>
+                    <p>Email : <a href="mailto:giffareno05@gmail.com">giffareno05@gmail.com</a></p>
+                </div>
+                <div class="contact-form">
+                    <input type="text" placeholder="Votre nom" class="mb-4">
+                    <input type="email" placeholder="Votre email" class="mb-4">
+                    <textarea placeholder="Votre message" rows="6" class="mb-4"></textarea>
+                    <button class="cta-button w-full">Envoyer</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-white/10 text-center">
+        <div class="container mx-auto px-6">
+            <h3 class="text-2xl font-bold mb-4">FARENO-TECH</h3>
+            <p class="mb-4">Automatisation intelligente pour WhatsApp</p>
+            <ul class="flex justify-center space-x-6 mb-4">
+                <li><a href="#home" class="hover:text-accent-color">Accueil</a></li>
+                <li><a href="#features" class="hover:text-accent-color">Fonctionnalités</a></li>
+                <li><a href="#demo" class="hover:text-accent-color">Démo</a></li>
+                <li><a href="#pricing" class="hover:text-accent-color">Tarification</a></li>
+                <li><a href="#contact" class="hover:text-accent-color">Contact</a></li>
+            </ul>
+            <p>© 2025 FARENO-TECH. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // GSAP Animations
+        gsap.from(".animate-hero-title", {
+            opacity: 0,
+            y: 120,
+            duration: 1.8,
+            ease: "power4.out"
+        });
+        gsap.from(".animate-hero-text", {
+            opacity: 0,
+            y: 120,
+            duration: 1.8,
+            delay: 0.4,
+            ease: "power4.out"
+        });
+        gsap.from(".cta-button", {
+            opacity: 0,
+            scale: 0.7,
+            duration: 1.2,
+            delay: 0.8,
+            ease: "elastic.out(1, 0.3)"
+        });
+
+        // Feature Cards Animation
+        gsap.from(".feature-card", {
+            opacity: 0,
+            y: 120,
+            duration: 1.2,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: "#features",
+                start: "top 85%"
+            }
+        });
+
+        // Demo Video Animation
+        gsap.from(".demo-video, .mute-button", {
+            opacity: 0,
+            y: 80,
+            duration: 1.2,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: "#demo",
+                start: "top 85%"
+            }
+        });
+
+        // Pricing Cards Animation
+        gsap.from(".pricing-card", {
+            opacity: 0,
+            x: 120,
+            duration: 1.2,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: "#pricing",
+                start: "top 85%"
+            }
+        });
+
+        // Testimonial Cards Animation
+        gsap.from(".testimonial-card", {
+            opacity: 0,
+            scale: 0.9,
+            duration: 1.2,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: "#testimonials",
+                start: "top 85%"
+            }
+        });
+
+        // FAQ Animation
+        gsap.from(".faq-item", {
+            opacity: 0,
+            y: 80,
+            duration: 1.2,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: "#faq",
+                start: "top 85%"
+            }
+        });
+
+        // Contact Animation
+        gsap.from(".contact-info, .contact-form input, .contact-form textarea, .contact-form button", {
+            opacity: 0,
+            y: 80,
+            duration: 1.2,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: "#contact",
+                start: "top 85%"
+            }
+        });
+
+        // FAQ Interaction
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        // Mute Button for Video
+        const video = document.querySelector('.demo-video');
+        const muteButton = document.querySelector('.mute-button');
+        muteButton.addEventListener('click', () => {
+            video.muted = !video.muted;
+            muteButton.textContent = video.muted ? 'Activer le son' : 'Couper le son';
+        });
+
+        // Contact Form Submission (Placeholder)
+        document.querySelector('.contact-form button').addEventListener('click', () => {
+            alert('Formulaire envoyé ! (Ceci est une démo)');
+        });
+
+        // Purchase Confirmation for Pricing Cards
+        function confirmPurchase(plan) {
+            if (confirm(`Souhaitez-vous finaliser la transaction pour le plan ${plan} ?`)) {
+                let url;
+                switch (plan) {
+                    case 'Démarreur':
+                        url = 'https://wa.me/237650564445?text=Bonjour%2C%20je%20souhaite%20finaliser%20l%27achat%20du%20bot%20pour%20le%20plan%20*Démarreur*';
+                        break;
+                    case 'Medium':
+                        url = 'https://wa.me/237650564445?text=Bonjour%2C%20je%20souhaite%20finaliser%20l%27achat%20du%20bot%20pour%20le%20plan%20*Medium*';
+                        break;
+                    case 'Avancé':
+                        url = 'https://wa.me/237650564445?text=Bonjour%2C%20je%20souhaite%20finaliser%20l%27achat%20du%20bot%20pour%20le%20plan%20*Avancé*';
+                        break;
+                }
+                window.location.href = url;
+            }
+        }
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
