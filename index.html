@@ -25,11 +25,11 @@
             background: var(--bg-dark);
             color: var(--text-light);
             overflow-x: hidden;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         .hero-section {
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -46,7 +46,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.15), transparent);
+            background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
             animation: rotateGlow 15s linear infinite;
             z-index: 0;
         }
@@ -58,7 +58,7 @@
 
         .hero-content {
             z-index: 1;
-            max-width: 800px;
+            max-width: 700px;
         }
 
         .navbar {
@@ -76,15 +76,15 @@
         }
 
         .logo-img {
-            height: 40px;
+            height: 35px;
         }
 
         .feature-card {
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 1.5rem; /* Réduit pour mobile */
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            padding: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
         }
@@ -95,7 +95,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 3px;
             background: var(--accent-color);
             transform: scaleX(0);
             transform-origin: left;
@@ -107,48 +107,48 @@
         }
 
         .feature-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
         .cta-button {
             background: var(--secondary-color);
             color: var(--text-light);
-            padding: 0.75rem 1.5rem; /* Réduit pour mobile */
-            border-radius: 8px;
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
             font-weight: 600;
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .cta-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
             background: var(--accent-color);
         }
 
         .demo-container {
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 1rem; /* Réduit pour mobile */
-            max-width: 100%; /* Plein écran sur mobile */
+            border-radius: 12px;
+            padding: 0.75rem;
+            max-width: 90%;
             margin: 0 auto;
             position: relative;
         }
 
         .demo-video {
             width: 100%;
-            border-radius: 12px;
+            border-radius: 8px;
         }
 
         .mute-button {
             position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
+            top: 0.25rem;
+            right: 0.25rem;
             background: var(--accent-color);
             color: var(--text-light);
-            padding: 0.25rem 0.75rem; /* Réduit pour mobile */
-            border-radius: 8px;
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
             cursor: pointer;
             transition: background 0.3s ease;
         }
@@ -158,18 +158,18 @@
         }
 
         .pricing-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 1.5rem; /* Réduit pour mobile */
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            padding: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
             position: relative;
         }
 
         .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
         .pricing-card::before {
@@ -178,7 +178,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 3px;
             background: var(--accent-color);
             transform: scaleX(0);
             transform-origin: left;
@@ -190,27 +190,27 @@
         }
 
         .testimonial-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1rem; /* Réduit pour mobile */
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 0.75rem;
             transition: transform 0.3s ease;
         }
 
         .testimonial-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
         }
 
         .faq-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1rem; /* Réduit pour mobile */
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 0.75rem;
+            border-radius: 6px;
             margin-bottom: 0.5rem;
             cursor: pointer;
             transition: background 0.3s ease;
         }
 
         .faq-item:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .faq-answer {
@@ -220,15 +220,15 @@
         }
 
         .faq-item.active .faq-answer {
-            max-height: 300px;
+            max-height: 250px;
         }
 
         .contact-form input, .contact-form textarea {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             color: var(--text-light);
-            border-radius: 8px;
-            padding: 0.75rem; /* Réduit pour mobile */
+            border-radius: 6px;
+            padding: 0.5rem;
             width: 100%;
             margin-bottom: 0.5rem;
             transition: border-color 0.3s ease;
@@ -248,7 +248,7 @@
             color: var(--secondary-color);
         }
 
-        /* Media Queries pour mobile */
+        /* Media Queries */
         @media (max-width: 768px) {
             .navbar ul {
                 display: none;
@@ -274,24 +274,24 @@
             }
 
             .hero-content h2 {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
 
             .hero-content p {
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
 
             .grid {
-                grid-template-columns: 1fr; /* Une colonne sur mobile */
+                grid-template-columns: 1fr;
             }
 
             .feature-card, .pricing-card, .testimonial-card {
-                margin-bottom: 1rem;
+                margin-bottom: 0.75rem;
             }
 
             .cta-button {
                 width: 100%;
-                margin-top: 1rem;
+                margin-top: 0.75rem;
             }
 
             .demo-container {
@@ -304,7 +304,35 @@
             }
 
             .contact-form {
-                padding: 0 1rem;
+                padding: 0 0.5rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-content h2 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.25rem;
+            }
+
+            .feature-card, .pricing-card, .testimonial-card {
+                padding: 1.25rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .hero-content h2 {
+                font-size: 4rem;
+            }
+
+            .hero-content p {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -312,85 +340,85 @@
 <body>
     <!-- Header -->
     <header class="navbar fixed top-0 left-0 w-full z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="logo1.jpg" alt="FARENO-TECH Logo" class="logo-img mr-4">
-                <h1 class="text-3xl font-bold">FARENO-TECH</h1>
+                <img src="logo1.jpg" alt="FARENO-TECH Logo" class="logo-img mr-3">
+                <h1 class="text-2xl font-bold">FARENO-TECH</h1>
             </div>
             <div class="md:hidden menu-toggle" onclick="toggleMenu()">☰</div>
-            <ul class="flex space-x-8">
-                <li><a href="#home" class="text-lg">Accueil</a></li>
-                <li><a href="#features" class="text-lg">Fonctionnalités</a></li>
-                <li><a href="#demo" class="text-lg">Démo</a></li>
-                <li><a href="#pricing" class="text-lg">Tarification</a></li>
-                <li><a href="#testimonials" class="text-lg">Témoignages</a></li>
-                <li><a href="#faq" class="text-lg">FAQ</a></li>
-                <li><a href="#contact" class="text-lg">Contact</a></li>
+            <ul class="flex space-x-6">
+                <li><a href="#home" class="text-base">Accueil</a></li>
+                <li><a href="#features" class="text-base">Fonctionnalités</a></li>
+                <li><a href="#demo" class="text-base">Démo</a></li>
+                <li><a href="#pricing" class="text-base">Tarification</a></li>
+                <li><a href="#testimonials" class="text-base">Témoignages</a></li>
+                <li><a href="#faq" class="text-base">FAQ</a></li>
+                <li><a href="#contact" class="text-base">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
-        <div class="hero-content container mx-auto px-6">
-            <h2 class="text-6xl font-bold mb-6 animate-hero-title">FARENO-TECH : Votre Bot WhatsApp Ultime</h2>
-            <p class="text-2xl mb-8 animate-hero-text">Anti Vue Unique, AntiDelete, et automatisation des groupes pour une gestion intelligente.</p>
-            <a href="#demo" class="cta-button inline-block text-lg">Voir la démo</a>
+        <div class="hero-content container mx-auto px-4">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4 animate-hero-title">FARENO-TECH : Votre Bot WhatsApp Ultime</h2>
+            <p class="text-lg md:text-2xl mb-6 animate-hero-text">Anti Vue Unique, AntiDelete, et automatisation des groupes pour une gestion intelligente.</p>
+            <a href="#demo" class="cta-button inline-block text-base md:text-lg">Voir la démo</a>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="py-24">
-        <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-bold text-center mb-16">Fonctionnalités du Bot</h2>
-            <p class="text-center text-xl mb-12">Découvrez les capacités puissantes de notre bot, inspirées du menu LEVANTER, pour une automatisation WhatsApp optimale.</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section id="features" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-8">Fonctionnalités du Bot</h2>
+            <p class="text-center text-base md:text-xl mb-6">Découvrez les capacités puissantes de notre bot, inspirées du menu LEVANTER, pour une automatisation WhatsApp optimale.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="feature-card">
-                    <h3 class="text-2xl font-semibold mb-4">Anti Vue Unique (.vv)</h3>
-                    <p>Lisez les messages sans déclencher les coches bleues avec <code>.vv</code>. Parfait pour une confidentialité accrue.</p>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Anti Vue Unique (.vv)</h3>
+                    <p>Récupérez les messages en vue unique avec <code>.vv</code> pour une discrétion totale.</p>
                 </div>
                 <div class="feature-card">
-                    <h3 class="text-2xl font-semibold mb-4">AntiDelete (.dlt)</h3>
-                    <p>Récupérez les messages supprimés avec <code>.dlt</code>. Ne manquez plus aucune information cruciale.</p>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">AntiDelete (.delete)</h3>
+                    <p>Récupérez les messages supprimés avec <code>.delete</code>. Ne manquez plus aucune information cruciale.</p>
                 </div>
                 <div class="feature-card">
-                    <h3 class="text-2xl font-semibold mb-4">Automatisation des Groupes</h3>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Automatisation des Groupes</h3>
                     <p>Gérez vos groupes avec des commandes comme <code>.add</code>, <code>.kick</code>, <code>.promote</code>, <code>.mute</code>, et <code>.tag</code>.</p>
                 </div>
                 <div class="feature-card">
-                    <h3 class="text-2xl font-semibold mb-4">Réponses Automatiques (.filter)</h3>
-                    <p>Configurez des réponses automatiques avec <code>.filter</code> pour une communication instantanée 24/7.</p>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">AI</h3>
+                    <p>Intégrez des IA comme Bing, DALL-E, GPT, et Grok avec des commandes personnalisées pour des réponses intelligentes et créatives.</p>
                 </div>
                 <div class="feature-card">
-                    <h3 class="text-2xl font-semibold mb-4">Planification de Messages (.setschedule)</h3>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Planification de Messages (.setschedule)</h3>
                     <p>Programmez des messages avec <code>.setschedule</code> pour envoyer des annonces à des moments précis.</p>
                 </div>
                 <div class="feature-card">
-                    <h3 class="text-2xl font-semibold mb-4">Analyse des Conversations (.msgstats)</h3>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Analyse des Conversations (.msgstats)</h3>
                     <p>Obtenez des rapports détaillés sur l’engagement avec <code>.msgstats</code> pour optimiser vos interactions.</p>
                 </div>
                 <div class="feature-card">
-                    <h3 class="text-2xl font-semibold mb-4">Gestion de Statuts (.setstatus)</h3>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Gestion de Statuts (.setstatus)</h3>
                     <p>Personnalisez vos statuts WhatsApp avec <code>.setstatus</code> et consultez ceux des autres avec <code>.status</code>.</p>
                 </div>
                 <div class="feature-card">
-                    <h3 class="text-2xl font-semibold mb-4">Téléchargements Médias</h3>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Téléchargements Médias</h3>
                     <p>Téléchargez vidéos, images, et stories avec <code>.story</code>, <code>.video</code>, <code>.insta</code>, et plus.</p>
                 </div>
                 <div class="feature-card">
-                    <h3 class="text-2xl font-semibold mb-4">Filtres Anti-Spam (.antispam)</h3>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Filtres Anti-Spam (.antispam)</h3>
                     <p>Protégez vos groupes avec <code>.antispam</code>, <code>.antilink</code>, et <code>.antiword</code> pour une modération sécurisée.</p>
                 </div>
                 <div class="feature-card">
-                    <h3 class="text-2xl font-semibold mb-4">Création de Stickers (.sticker)</h3>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Création de Stickers (.sticker)</h3>
                     <p>Transformez images et vidéos en stickers avec <code>.sticker</code>, <code>.circle</code>, et <code>.mp4</code>.</p>
                 </div>
                 <div class="feature-card">
-                    <h3 class="text-2xl font-semibold mb-4">Textes Personnalisés (.textmaker)</h3>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Textes Personnalisés (.textmaker)</h3>
                     <p>Créez des textes stylisés avec des effets comme <code>.neon</code>, <code>.glitch</code>, et <code>.marvel</code>.</p>
                 </div>
                 <div class="feature-card">
-                    <h3 class="text-2xl font-semibold mb-4">Jeux et Interactions (.tictactoe)</h3>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Jeux et Interactions (.tictactoe)</h3>
                     <p>Engagez vos groupes avec des jeux comme <code>.tictactoe</code> ou des votes avec <code>.vote</code>.</p>
                 </div>
             </div>
@@ -398,9 +426,9 @@
     </section>
 
     <!-- Demo Section -->
-    <section id="demo" class="py-24 bg-white/10">
-        <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-bold text-center mb-16">Démo du Bot</h2>
+    <section id="demo" class="py-16 bg-white/10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-8">Démo du Bot</h2>
             <div class="demo-container">
                 <video class="demo-video" controls>
                     <source src="demo.mp4" type="video/mp4">
@@ -412,43 +440,43 @@
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="py-24">
-        <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-bold text-center mb-16">Nos Tarifs</h2>
-            <p class="text-center text-xl mb-12">Choisissez le plan qui vous convient. Migration possible entre les plans à tout moment !</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section id="pricing" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-8">Nos Tarifs</h2>
+            <p class="text-center text-base md:text-xl mb-6">Choisissez le plan qui vous convient. Migration possible entre les plans à tout moment !</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="pricing-card" onclick="confirmPurchase('Démarreur')">
-                    <h3 class="text-2xl font-semibold mb-4">Démarreur</h3>
-                    <p class="text-3xl mb-4">Installation : 7000F</p>
-                    <p class="text-xl mb-4">Mensuel : 3000F/mois</p>
-                    <ul class="text-left mb-6">
-                        <li class="mb-2">CPU : 20%</li>
-                        <li class="mb-2">Accès aux fonctionnalités de base (.vv, .filter)</li>
-                        <li class="mb-2">Support par email</li>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Démarreur</h3>
+                    <p class="text-2xl md:text-3xl mb-2">Installation : 7000F</p>
+                    <p class="text-lg md:text-xl mb-2">Mensuel : 3000F/mois</p>
+                    <ul class="text-left mb-4">
+                        <li class="mb-1">CPU : 20%</li>
+                        <li class="mb-1">Accès aux fonctionnalités de base (.vv, .delete)</li>
+                        <li class="mb-1">Support par email</li>
                     </ul>
                     <button class="cta-button">Choisir</button>
                 </div>
                 <div class="pricing-card" onclick="confirmPurchase('Medium')">
-                    <h3 class="text-2xl font-semibold mb-4">Medium</h3>
-                    <p class="text-3xl mb-4">Installation : 10000F</p>
-                    <p class="text-xl mb-4">Mensuel : 5000F/mois</p>
-                    <ul class="text-left mb-6">
-                        <li class="mb-2">CPU : 25%</li>
-                        <li class="mb-2">Anti Vue Unique + AntiDelete (.vv, .dlt)</li>
-                        <li class="mb-2">Automatisation des groupes (.add, .kick)</li>
-                        <li class="mb-2">Support 24/24</li>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Medium</h3>
+                    <p class="text-2xl md:text-3xl mb-2">Installation : 10000F</p>
+                    <p class="text-lg md:text-xl mb-2">Mensuel : 5000F/mois</p>
+                    <ul class="text-left mb-4">
+                        <li class="mb-1">CPU : 25%</li>
+                        <li class="mb-1">Anti Vue Unique + AntiDelete (.vv, .delete)</li>
+                        <li class="mb-1">Automatisation des groupes (.add, .kick)</li>
+                        <li class="mb-1">Support 24/24</li>
                     </ul>
                     <button class="cta-button">Choisir</button>
                 </div>
                 <div class="pricing-card" onclick="confirmPurchase('Avancé')">
-                    <h3 class="text-2xl font-semibold mb-4">Avancé</h3>
-                    <p class="text-3xl mb-4">Installation : 15000F</p>
-                    <p class="text-xl mb-4">Mensuel : 5000F/mois</p>
-                    <ul class="text-left mb-6">
-                        <li class="mb-2">CPU : 50%</li>
-                        <li class="mb-2">Accès à toutes les fonctionnalités</li>
-                        <li class="mb-2">Support 24/24</li>
-                        <li class="mb-2">Intégrations personnalisées</li>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Avancé</h3>
+                    <p class="text-2xl md:text-3xl mb-2">Installation : 15000F</p>
+                    <p class="text-lg md:text-xl mb-2">Mensuel : 5000F/mois</p>
+                    <ul class="text-left mb-4">
+                        <li class="mb-1">CPU : 50%</li>
+                        <li class="mb-1">Accès à toutes les fonctionnalités</li>
+                        <li class="mb-1">Support 24/24</li>
+                        <li class="mb-1">Intégrations personnalisées</li>
                     </ul>
                     <button class="cta-button">Choisir</button>
                 </div>
@@ -457,20 +485,20 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-24 bg-white/10">
-        <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-bold text-center mb-16">Ce que disent nos clients</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section id="testimonials" class="py-16 bg-white/10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-8">Ce que disent nos clients</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="testimonial-card">
-                    <p class="mb-4">"La commande .vv change tout pour ma gestion des messages. FARENO-TECH est un must !"</p>
+                    <p class="mb-2">"La commande .vv change tout pour ma gestion des messages. FARENO-TECH est un must !"</p>
                     <p class="font-semibold">Sophie L., Community Manager</p>
                 </div>
                 <div class="testimonial-card">
-                    <p class="mb-4">"Grâce à .delete, je récupère tous les messages supprimés. Un outil indispensable."</p>
+                    <p class="mb-2">"Grâce à .delete, je récupère tous les messages supprimés. Un outil indispensable."</p>
                     <p class="font-semibold">Ahmed M., Entrepreneur</p>
                 </div>
                 <div class="testimonial-card">
-                    <p class="mb-4">"L’automatisation des groupes avec .add et .kick est tellement pratique. Bravo FARENO-TECH !"</p>
+                    <p class="mb-2">"L’automatisation des groupes avec .add et .kick est tellement pratique. Bravo FARENO-TECH !"</p>
                     <p class="font-semibold">Clara T., Gestionnaire de communauté</p>
                 </div>
             </div>
@@ -478,36 +506,36 @@
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="py-24">
-        <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-bold text-center mb-16">Foire Aux Questions</h2>
-            <div class="max-w-3xl mx-auto">
+    <section id="faq" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-8">Foire Aux Questions</h2>
+            <div class="max-w-2xl md:max-w-3xl mx-auto">
                 <div class="faq-item">
-                    <h3 class="text-xl font-semibold mb-2">Comment fonctionne l’Anti Vue Unique (.vv) ?</h3>
+                    <h3 class="text-lg md:text-xl font-semibold mb-1">Comment fonctionne l’Anti Vue Unique (.vv) ?</h3>
                     <div class="faq-answer">
                         <p>La commande <code>.vv</code> permet de lire les messages sans déclencher les coches bleues, garantissant une confidentialité totale.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <h3 class="text-xl font-semibold mb-2">L’AntiDelete (.dlt) est-il sécurisé ?</h3>
+                    <h3 class="text-lg md:text-xl font-semibold mb-1">L’AntiDelete (.delete) est-il sécurisé ?</h3>
                     <div class="faq-answer">
-                        <p>Oui, les messages récupérés via <code>.dlt</code> sont stockés de manière sécurisée et accessibles uniquement par vous.</p>
+                        <p>Oui, les messages récupérés via <code>.delete</code> sont stockés de manière sécurisée et accessibles uniquement par vous.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <h3 class="text-xl font-semibold mb-2">Puis-je automatiser plusieurs groupes ?</h3>
+                    <h3 class="text-lg md:text-xl font-semibold mb-1">Puis-je automatiser plusieurs groupes ?</h3>
                     <div class="faq-answer">
                         <p>Absolument ! Utilisez des commandes comme <code>.add</code>, <code>.kick</code>, ou <code>.promote</code> pour gérer plusieurs groupes simultanément.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <h3 class="text-xl font-semibold mb-2">Quelles analyses sont disponibles avec .msgstats ?</h3>
+                    <h3 class="text-lg md:text-xl font-semibold mb-1">Quelles analyses sont disponibles avec .msgstats ?</h3>
                     <div class="faq-answer">
                         <p>La commande <code>.msgstats</code> fournit des rapports sur l’engagement, les réponses automatiques, et les tendances des conversations.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <h3 class="text-xl font-semibold mb-2">Comment migrer vers un autre plan ?</h3>
+                    <h3 class="text-lg md:text-xl font-semibold mb-1">Comment migrer vers un autre plan ?</h3>
                     <div class="faq-answer">
                         <p>Contactez-nous via WhatsApp (+237650564445) ou email (giffareno05@gmail.com) pour discuter des options de migration.</p>
                     </div>
@@ -517,18 +545,18 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-white/10">
-        <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-bold text-center mb-16">Contactez-nous</h2>
-            <div class="max-w-lg mx-auto text-center">
-                <div class="contact-info mb-8">
-                    <p class="mb-4">WhatsApp : <a href="https://wa.me/237650564445">+237650564445</a></p>
+    <section id="contact" class="py-16 bg-white/10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-8">Contactez-nous</h2>
+            <div class="max-w-sm md:max-w-lg mx-auto text-center">
+                <div class="contact-info mb-4">
+                    <p class="mb-2">WhatsApp : <a href="https://wa.me/237650564445">+237650564445</a></p>
                     <p>Email : <a href="mailto:giffareno05@gmail.com">giffareno05@gmail.com</a></p>
                 </div>
                 <div class="contact-form">
-                    <input type="text" placeholder="Votre nom" class="mb-4">
-                    <input type="email" placeholder="Votre email" class="mb-4">
-                    <textarea placeholder="Votre message" rows="6" class="mb-4"></textarea>
+                    <input type="text" placeholder="Votre nom" class="mb-2">
+                    <input type="email" placeholder="Votre email" class="mb-2">
+                    <textarea placeholder="Votre message" rows="4" class="mb-2"></textarea>
                     <button class="cta-button w-full">Envoyer</button>
                 </div>
             </div>
@@ -536,11 +564,11 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 bg-white/10 text-center">
-        <div class="container mx-auto px-6">
-            <h3 class="text-2xl font-bold mb-4">FARENO-TECH</h3>
-            <p class="mb-4">Automatisation intelligente pour WhatsApp</p>
-            <ul class="flex justify-center space-x-6 mb-4">
+    <footer class="py-8 bg-white/10 text-center">
+        <div class="container mx-auto px-4">
+            <h3 class="text-xl md:text-2xl font-bold mb-2">FARENO-TECH</h3>
+            <p class="mb-2">Automatisation intelligente pour WhatsApp</p>
+            <ul class="flex justify-center space-x-4 mb-2">
                 <li><a href="#home" class="hover:text-accent-color">Accueil</a></li>
                 <li><a href="#features" class="hover:text-accent-color">Fonctionnalités</a></li>
                 <li><a href="#demo" class="hover:text-accent-color">Démo</a></li>
@@ -552,99 +580,17 @@
     </footer>
 
     <script>
-        // GSAP Animations
-        gsap.from(".animate-hero-title", {
-            opacity: 0,
-            y: 120,
-            duration: 1.8,
-            ease: "power4.out"
-        });
-        gsap.from(".animate-hero-text", {
-            opacity: 0,
-            y: 120,
-            duration: 1.8,
-            delay: 0.4,
-            ease: "power4.out"
-        });
-        gsap.from(".cta-button", {
-            opacity: 0,
-            scale: 0.7,
-            duration: 1.2,
-            delay: 0.8,
-            ease: "elastic.out(1, 0.3)"
-        });
+        // GSAP Animations (simplifiées pour mobile)
+        gsap.from(".animate-hero-title", { opacity: 0, y: 80, duration: 1.2, ease: "power2.out" });
+        gsap.from(".animate-hero-text", { opacity: 0, y: 80, duration: 1.2, delay: 0.2, ease: "power2.out" });
+        gsap.from(".cta-button", { opacity: 0, scale: 0.8, duration: 1, delay: 0.4, ease: "power2.out" });
 
-        // Feature Cards Animation
-        gsap.from(".feature-card", {
-            opacity: 0,
-            y: 120,
-            duration: 1.2,
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: "#features",
-                start: "top 85%"
-            }
-        });
-
-        // Demo Video Animation
-        gsap.from(".demo-video, .mute-button", {
-            opacity: 0,
-            y: 80,
-            duration: 1.2,
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: "#demo",
-                start: "top 85%"
-            }
-        });
-
-        // Pricing Cards Animation
-        gsap.from(".pricing-card", {
-            opacity: 0,
-            x: 120,
-            duration: 1.2,
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: "#pricing",
-                start: "top 85%"
-            }
-        });
-
-        // Testimonial Cards Animation
-        gsap.from(".testimonial-card", {
-            opacity: 0,
-            scale: 0.9,
-            duration: 1.2,
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: "#testimonials",
-                start: "top 85%"
-            }
-        });
-
-        // FAQ Animation
-        gsap.from(".faq-item", {
-            opacity: 0,
-            y: 80,
-            duration: 1.2,
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: "#faq",
-                start: "top 85%"
-            }
-        });
-
-        // Contact Animation
-        gsap.from(".contact-info, .contact-form input, .contact-form textarea, .contact-form button", {
-            opacity: 0,
-            y: 80,
-            duration: 1.2,
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: "#contact",
-                start: "top 85%"
-            }
-        });
+        gsap.from(".feature-card", { opacity: 0, y: 80, duration: 1, stagger: 0.15, scrollTrigger: { trigger: "#features", start: "top 85%" } });
+        gsap.from(".demo-video, .mute-button", { opacity: 0, y: 60, duration: 1, stagger: 0.15, scrollTrigger: { trigger: "#demo", start: "top 85%" } });
+        gsap.from(".pricing-card", { opacity: 0, x: 80, duration: 1, stagger: 0.15, scrollTrigger: { trigger: "#pricing", start: "top 85%" } });
+        gsap.from(".testimonial-card", { opacity: 0, scale: 0.9, duration: 1, stagger: 0.15, scrollTrigger: { trigger: "#testimonials", start: "top 85%" } });
+        gsap.from(".faq-item", { opacity: 0, y: 60, duration: 1, stagger: 0.15, scrollTrigger: { trigger: "#faq", start: "top 85%" } });
+        gsap.from(".contact-info, .contact-form input, .contact-form textarea, .contact-form button", { opacity: 0, y: 60, duration: 1, stagger: 0.15, scrollTrigger: { trigger: "#contact", start: "top 85%" } });
 
         // FAQ Interaction
         document.querySelectorAll('.faq-item').forEach(item => {
@@ -689,11 +635,9 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
                 if (window.innerWidth <= 768) {
-                    toggleMenu(); // Ferme le menu sur mobile après clic
+                    toggleMenu();
                 }
             });
         });
@@ -701,7 +645,7 @@
         // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
+            if (window.scrollY > 40) {
                 navbar.classList.add('shadow-lg');
             } else {
                 navbar.classList.remove('shadow-lg');
