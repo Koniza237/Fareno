@@ -1,0 +1,15 @@
+databases:
+  - name: fareno-db
+    databaseName: fareno
+    user: user
+    plan: free
+services:
+  - type: web
+    name: fareno-tech
+    env: static
+    buildCommand: "echo 'No build required for static site'"
+    staticPublishPath: ./
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
